@@ -40,15 +40,13 @@ fun MyApp() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Surface(color = MaterialTheme.colorScheme.primary) {
-        Column {
+        Column(modifier = Modifier.padding(24.dp)) {
             Text(
                 text = "Welcome to $name!",
-                modifier = Modifier.padding(24.dp)
 
             )
             Text(
                 text = "Welcome to $name!",
-                modifier = Modifier.padding(24.dp)
             )
         }
     }
