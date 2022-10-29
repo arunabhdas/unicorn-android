@@ -3,6 +3,7 @@ package app.unicornapp.mobile.android.unicorn
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -19,30 +20,45 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             UnicornTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Unicorn")
-                }
+                MyApp()
             }
         }
     }
 }
 
 @Composable
+fun MyApp() {
+    // A surface container using the 'background' color from the theme
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.primary
+    ) {
+        Greeting("Unicorn")
+    }
+}
+
+@Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Welcome to $name!",
-        modifier = Modifier.padding(24.dp)
-    )
+    Surface(color = MaterialTheme.colorScheme.primary) {
+        Column {
+            Text(
+                text = "Welcome to $name!",
+                modifier = Modifier.padding(24.dp)
+
+            )
+            Text(
+                text = "Welcome to $name!",
+                modifier = Modifier.padding(24.dp)
+            )
+        }
+    }
+
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun DefaultPreview() {
     UnicornTheme {
-        Greeting("Unicorn")
+        MyApp()
     }
 }
