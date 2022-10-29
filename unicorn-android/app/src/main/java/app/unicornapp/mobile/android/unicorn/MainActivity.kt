@@ -27,13 +27,16 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp() {
+fun MyApp(names: List<String>) {
     // A surface container using the 'background' color from the theme
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.primary
     ) {
-        Greeting("Unicorn")
+        Column {
+            Greeting("Unicorn")
+            Greeting("App")
+        }
     }
 }
 
