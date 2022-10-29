@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp(names: List<String>) {
+fun MyApp(titles: List<String> = listOf("Unicorn", "App")) {
     // A surface container using the 'background' color from the theme
     Surface(
         modifier = Modifier.fillMaxSize(),
