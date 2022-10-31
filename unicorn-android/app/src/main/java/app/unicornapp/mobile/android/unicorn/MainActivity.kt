@@ -28,14 +28,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp(titles: List<String> = listOf("Unicorn", "App")) {
+
     // A surface container using the 'background' color from the theme
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.primary
     ) {
         Column {
-            Greeting("Unicorn")
-            Greeting("App")
+            for (title in titles) {
+                Greeting(title)
+            }
         }
     }
 }
@@ -56,7 +58,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, widthDp = 320)
 @Composable
 fun DefaultPreview() {
     UnicornTheme {
