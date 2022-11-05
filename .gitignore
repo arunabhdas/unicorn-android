@@ -1,4 +1,5 @@
 NOTES.md
+.DS_Store
 # Gradle files
 .gradle/
 build/
