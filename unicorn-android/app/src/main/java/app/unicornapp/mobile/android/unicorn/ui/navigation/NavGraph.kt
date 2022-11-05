@@ -4,7 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import app.unicornapp.mobile.android.unicorn.ui.HomeScreen
+import app.unicornapp.mobile.android.unicorn.ui.screens.HomeScreen
+import app.unicornapp.mobile.android.unicorn.ui.screens.HomeDetailScreen
 
 @Composable
 fun SetupNavGraph(
@@ -18,6 +19,12 @@ fun SetupNavGraph(
             route = Screen.HomeScreen.route
         ) {
             HomeScreen()
+        }
+
+        composable(
+            route = Screen.HomeDetailScreen.route
+        ) {
+            HomeDetailScreen()
         }
     }
 }

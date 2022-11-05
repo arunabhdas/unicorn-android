@@ -1,4 +1,4 @@
-package app.unicornapp.mobile.android.unicorn.ui
+package app.unicornapp.mobile.android.unicorn.ui.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
