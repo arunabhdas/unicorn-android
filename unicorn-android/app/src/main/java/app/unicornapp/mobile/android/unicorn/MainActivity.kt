@@ -20,14 +20,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             UnicornTheme {
-                MyApp()
+                WelcomeScreen()
             }
         }
     }
 }
 
 @Composable
-fun MyApp(titles: List<String> = listOf("Unicorn", "App")) {
+fun WelcomeScreen(titles: List<String> = listOf("Unicorn", "App")) {
 
     // A surface container using the 'background' color from the theme
     Surface(
@@ -62,6 +62,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun DefaultPreview() {
     UnicornTheme {
-        MyApp()
+        WelcomeScreen()
     }
 }
