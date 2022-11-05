@@ -14,7 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupNavGraph
 import app.unicornapp.mobile.android.unicorn.ui.theme.UnicornTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +26,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             UnicornTheme {
                 navController = rememberNavController()
-                WelcomeScreen()
+                // TODO-FIXME-CLEANUP WelcomeScreen()
+                SetupNavGraph(navController = navController as NavHostController)
             }
         }
     }
