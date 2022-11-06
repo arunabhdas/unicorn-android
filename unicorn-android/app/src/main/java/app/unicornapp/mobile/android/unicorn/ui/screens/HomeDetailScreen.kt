@@ -28,7 +28,11 @@ fun HomeDetailScreen(
     ) {
         Text(
             modifier = Modifier.clickable {
-               navController.popBackStack()
+               navController.navigate(Screen.HomeScreen.route) {
+                   popUpTo(Screen.HomeScreen.route) {
+                       inclusive = true
+                   }
+               }
             },
             text = "Detail",
             color = MaterialTheme.colorScheme.primary,
