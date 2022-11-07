@@ -33,7 +33,7 @@ fun HomeDetailScreen(
     ) {
         Image(
             painterResource(
-            id = R.drawable.banner_bg_3),
+            id = R.drawable.banner_bg_2),
             contentDescription = "",
             contentScale = ContentScale.FillBounds,
             modifier = Modifier.matchParentSize()

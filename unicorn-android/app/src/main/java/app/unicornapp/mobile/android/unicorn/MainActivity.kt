@@ -1,15 +1,25 @@
 package app.unicornapp.mobile.android.unicorn
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -17,8 +27,14 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import app.unicornapp.mobile.android.unicorn.data.MenuItem
+import app.unicornapp.mobile.android.unicorn.ui.navigation.AppBar
+import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerBody
+import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerHeader
+import app.unicornapp.mobile.android.unicorn.ui.navigation.Screen
 import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupNavGraph
 import app.unicornapp.mobile.android.unicorn.ui.theme.UnicornTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     lateinit var navController: NavController
@@ -28,8 +44,56 @@ class MainActivity : ComponentActivity() {
         setContent {
             UnicornTheme {
                 navController = rememberNavController()
-                // TODO-FIXME-CLEANUP WelcomeScreen()
-                SetupNavGraph(navController = navController as NavHostController)
+                val scaffoldState = rememberScaffoldState()
+                val scope = rememberCoroutineScope()
+                Scaffold(
+                    scaffoldState = scaffoldState,
+                    topBar = {
+                        AppBar(
+                            onNavigationIconClick = {
+                                scope.launch {
+                                    scaffoldState.drawerState.open()
+                                }
+                            }
+                        )
+                    },
+                    drawerContent = {
+                        DrawerHeader()
+                        DrawerBody(
+                            items = listOf(
+                                MenuItem(
+                                    id = "home",
+                                    title = "Home",
+                                    contentDescription = "Go to Home",
+                                    icon = Icons.Default.Home
+                                ),
+                                MenuItem(
+                                    id = "notifications",
+                                    title = "notifications",
+                                    contentDescription = "Go to Notifications",
+                                    icon = Icons.Default.Notifications
+                                ),
+                                MenuItem(
+                                    id = "contact",
+                                    title = "Contact",
+                                    contentDescription = "Go to Contact",
+                                    icon = Icons.Default.Email
+                                )
+                            ),
+                            onItemClick = {
+                                scope.launch {
+                                    scaffoldState.drawerState.close()
+                                }
+                                println("Clicked on ${it.title}")
+                                navController.navigate(route = Screen.HomeDetailScreen.route)
+                            }
+                        )
+                    }
+                ) { padding ->
+                    Box(modifier = Modifier.padding(padding)) {
+                        SetupNavGraph(navController = navController as NavHostController)
+                    }
+                }
             }
         }
     }
@@ -58,7 +122,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             Text(
                 text = "Welcome to $name!",
 
-            )
+                )
             Text(
                 text = "Welcome to $name!",
             )
