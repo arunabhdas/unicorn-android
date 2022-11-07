@@ -31,7 +31,7 @@ fun HomeScreen(
         contentAlignment = Alignment.Center
     ) {
         Image(painterResource(
-            id = R.drawable.banner_bg_1),
+            id = R.drawable.banner_bg_2),
             contentDescription = "",
             contentScale = ContentScale.FillBounds,
             modifier = Modifier.matchParentSize()
