@@ -63,29 +63,29 @@ class MainActivity : ComponentActivity() {
                             items = listOf(
                                 MenuItem(
                                     id = "home",
-                                    title = "Home",
+                                    title = "home_screen",
                                     contentDescription = "Go to Home",
                                     icon = Icons.Default.Home
                                 ),
                                 MenuItem(
                                     id = "notifications",
-                                    title = "notifications",
+                                    title = "notification_screen",
                                     contentDescription = "Go to Notifications",
                                     icon = Icons.Default.Notifications
                                 ),
                                 MenuItem(
                                     id = "contact",
-                                    title = "Contact",
+                                    title = "contact_screen",
                                     contentDescription = "Go to Contact",
                                     icon = Icons.Default.Email
                                 )
                             ),
-                            onItemClick = {
+                            onItemClick = {menuItem ->
                                 scope.launch {
                                     scaffoldState.drawerState.close()
                                 }
-                                println("Clicked on ${it.title}")
-                                navController.navigate(route = Screen.HomeDetailScreen.route)
+                                println("Clicked on ${menuItem.title}")
+                                navController.navigate(route = menuItem.title)
                             }
                         )
                     }
