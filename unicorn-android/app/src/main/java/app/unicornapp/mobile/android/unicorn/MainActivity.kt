@@ -28,7 +28,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import app.unicornapp.mobile.android.unicorn.data.MenuItem
-import app.unicornapp.mobile.android.unicorn.ui.navigation.AppBar
+import app.unicornapp.mobile.android.unicorn.ui.navigation.CustomAppBar
 import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerBody
 import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerHeader
 import app.unicornapp.mobile.android.unicorn.ui.navigation.Screen
@@ -48,17 +48,8 @@ class MainActivity : ComponentActivity() {
                 val scope = rememberCoroutineScope()
                 Scaffold(
                     scaffoldState = scaffoldState,
-                    topBar = {
-                        AppBar(
-                            onNavigationIconClick = {
-                                scope.launch {
-                                    scaffoldState.drawerState.open()
-                                }
-                            }
-                        )
-                    },
                     drawerContent = {
-                        DrawerHeader()
+                        // TODO-FIXME-CLEANUP DrawerHeader()
                         DrawerBody(
                             items = listOf(
                                 MenuItem(
@@ -91,7 +82,15 @@ class MainActivity : ComponentActivity() {
                     }
                 ) { padding ->
                     Box(modifier = Modifier.padding(padding)) {
+
                         SetupNavGraph(navController = navController as NavHostController)
+                        CustomAppBar(
+                            onNavigationIconClick = {
+                                scope.launch {
+                                    scaffoldState.drawerState.open()
+                                }
+                            }
+                        )
                     }
                 }
             }
