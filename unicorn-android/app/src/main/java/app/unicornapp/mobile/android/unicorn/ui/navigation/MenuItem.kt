@@ -1,4 +1,4 @@
-package app.unicornapp.mobile.android.unicorn.data
+package app.unicornapp.mobile.android.unicorn.ui.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

@@ -1,6 +1,5 @@
 package app.unicornapp.mobile.android.unicorn
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
@@ -29,11 +27,9 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import app.unicornapp.mobile.android.unicorn.data.MenuItem
+import app.unicornapp.mobile.android.unicorn.ui.navigation.MenuItem
 import app.unicornapp.mobile.android.unicorn.ui.navigation.CustomAppBar
 import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerBody
-import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerHeader
-import app.unicornapp.mobile.android.unicorn.ui.navigation.Screen
 import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupNavGraph
 import app.unicornapp.mobile.android.unicorn.ui.theme.UnicornTheme
 import app.unicornapp.mobile.android.unicorn.viewmodel.UnicornViewModel
@@ -53,56 +49,64 @@ class MainActivity : ComponentActivity() {
         setContent {
             UnicornTheme {
                 navController = rememberNavController()
-                val scaffoldState = rememberScaffoldState()
-                val scope = rememberCoroutineScope()
-                Scaffold(
-                    scaffoldState = scaffoldState,
-                    drawerContent = {
-                        // TODO-FIXME-CLEANUP DrawerHeader()
-                        DrawerBody(
-                            items = listOf(
-                                MenuItem(
-                                    id = "home",
-                                    title = "home_screen",
-                                    contentDescription = "Go to Home",
-                                    icon = Icons.Default.Home
-                                ),
-                                MenuItem(
-                                    id = "notifications",
-                                    title = "notification_screen",
-                                    contentDescription = "Go to Notifications",
-                                    icon = Icons.Default.Notifications
-                                ),
-                                MenuItem(
-                                    id = "contact",
-                                    title = "contact_screen",
-                                    contentDescription = "Go to Contact",
-                                    icon = Icons.Default.Email
-                                )
-                            ),
-                            onItemClick = {menuItem ->
-                                scope.launch {
-                                    scaffoldState.drawerState.close()
-                                }
-                                println("Clicked on ${menuItem.title}")
-                                navController.navigate(route = menuItem.title)
-                            }
-                        )
-                    }
-                ) { padding ->
-                    Box(modifier = Modifier.padding(padding)) {
+                MyApp(navController)
+            }
+        }
+    }
+}
 
-                        SetupNavGraph(navController = navController as NavHostController)
-                        CustomAppBar(
-                            onNavigationIconClick = {
-                                scope.launch {
-                                    scaffoldState.drawerState.open()
-                                }
-                            }
-                        )
+@Composable
+fun MyApp(
+    navController: NavController,
+    titles: List<String> = listOf("Unicorn")
+) {
+    val scaffoldState = rememberScaffoldState()
+    val scope = rememberCoroutineScope()
+    Scaffold(
+        scaffoldState = scaffoldState,
+        drawerContent = {
+            // TODO-FIXME-CLEANUP DrawerHeader()
+            DrawerBody(
+                items = listOf(
+                    MenuItem(
+                        id = "home",
+                        title = "home_screen",
+                        contentDescription = "Go to Home",
+                        icon = Icons.Default.Home
+                    ),
+                    MenuItem(
+                        id = "notifications",
+                        title = "notification_screen",
+                        contentDescription = "Go to Notifications",
+                        icon = Icons.Default.Notifications
+                    ),
+                    MenuItem(
+                        id = "contact",
+                        title = "contact_screen",
+                        contentDescription = "Go to Contact",
+                        icon = Icons.Default.Email
+                    )
+                ),
+                onItemClick = {menuItem ->
+                    scope.launch {
+                        scaffoldState.drawerState.close()
+                    }
+                    println("Clicked on ${menuItem.title}")
+                    navController.navigate(route = menuItem.title)
+                }
+            )
+        }
+    ) { padding ->
+        Box(modifier = Modifier.padding(padding)) {
+
+            SetupNavGraph(navController = navController as NavHostController)
+            CustomAppBar(
+                onNavigationIconClick = {
+                    scope.launch {
+                        scaffoldState.drawerState.open()
                     }
                 }
-            }
+            )
         }
     }
 }
@@ -143,6 +147,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun DefaultPreview() {
     UnicornTheme {
-        WelcomeScreen()
+        MyApp(
+            navController = rememberNavController(),
+            listOf("One", "Two", "Three")
+        )
     }
 }

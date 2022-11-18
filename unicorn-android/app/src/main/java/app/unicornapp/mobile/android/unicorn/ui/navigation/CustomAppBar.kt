@@ -46,6 +46,7 @@ fun CustomAppBar(
                 IconButton(onClick = onNavigationIconClick) {
                     Icon(
                         imageVector = Icons.Rounded.Menu,
+                        tint = Color.White,
                         contentDescription = "Toggle"
                     )
                 }

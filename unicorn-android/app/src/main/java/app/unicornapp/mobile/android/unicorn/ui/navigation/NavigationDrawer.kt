@@ -12,17 +12,18 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.unicornapp.mobile.android.unicorn.R
-import app.unicornapp.mobile.android.unicorn.data.MenuItem
 
 
 @Composable
@@ -68,12 +69,14 @@ fun DrawerBody(
                 ) {
                     Icon(
                         imageVector = item.icon,
+                        tint = Color.White,
                         contentDescription = item.contentDescription
                     )
                     Spacer(modifier = Modifier.width(16.dp))
                     Text(
                         text = item.title,
                         style = itemTextStyle,
+                        color = Color.White,
                         modifier = Modifier.weight(1f)
                     )
                 }
