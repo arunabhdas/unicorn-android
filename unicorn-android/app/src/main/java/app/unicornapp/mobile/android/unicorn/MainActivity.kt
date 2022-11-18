@@ -30,6 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import app.unicornapp.mobile.android.unicorn.ui.navigation.MenuItem
 import app.unicornapp.mobile.android.unicorn.ui.navigation.CustomAppBar
 import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerBody
+import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerHeader
 import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupNavGraph
 import app.unicornapp.mobile.android.unicorn.ui.theme.UnicornTheme
 import app.unicornapp.mobile.android.unicorn.viewmodel.UnicornViewModel
@@ -65,26 +66,26 @@ fun MyApp(
     Scaffold(
         scaffoldState = scaffoldState,
         drawerContent = {
-            // TODO-FIXME-CLEANUP DrawerHeader()
+            DrawerHeader()
             DrawerBody(
                 items = listOf(
                     MenuItem(
                         id = "home",
-                        title = "home_screen",
-                        contentDescription = "Go to Home",
+                        title = "Home",
+                        contentDescription = "Navigate to Home",
                         icon = Icons.Default.Home
                     ),
                     MenuItem(
-                        id = "notifications",
-                        title = "notification_screen",
-                        contentDescription = "Go to Notifications",
-                        icon = Icons.Default.Notifications
+                        id = "contact",
+                        title = "Contact",
+                        contentDescription = "Navigate to Contact",
+                        icon = Icons.Default.Email
                     ),
                     MenuItem(
-                        id = "contact",
-                        title = "contact_screen",
-                        contentDescription = "Go to Contact",
-                        icon = Icons.Default.Email
+                        id = "notifications",
+                        title = "Notifications",
+                        contentDescription = "Navigate to Notifications",
+                        icon = Icons.Default.Notifications
                     )
                 ),
                 onItemClick = {menuItem ->
