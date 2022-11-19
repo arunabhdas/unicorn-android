@@ -66,24 +66,26 @@ fun MyApp(
     Scaffold(
         scaffoldState = scaffoldState,
         drawerContent = {
-            DrawerHeader()
             DrawerBody(
                 items = listOf(
                     MenuItem(
                         id = "home",
                         title = "Home",
+                        route = "home_screen",
                         contentDescription = "Navigate to Home",
                         icon = Icons.Default.Home
                     ),
                     MenuItem(
                         id = "contact",
                         title = "Contact",
+                        route = "contact_screen",
                         contentDescription = "Navigate to Contact",
                         icon = Icons.Default.Email
                     ),
                     MenuItem(
                         id = "notifications",
                         title = "Notifications",
+                        route = "notification_screen",
                         contentDescription = "Navigate to Notifications",
                         icon = Icons.Default.Notifications
                     )
@@ -93,7 +95,7 @@ fun MyApp(
                         scaffoldState.drawerState.close()
                     }
                     println("Clicked on ${menuItem.title}")
-                    navController.navigate(route = menuItem.title)
+                    navController.navigate(route = menuItem.route)
                 }
             )
         }

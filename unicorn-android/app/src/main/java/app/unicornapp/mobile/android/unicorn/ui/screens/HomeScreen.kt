@@ -79,11 +79,7 @@ fun HomeCard(
             fontSize = MaterialTheme.typography.titleMedium.fontSize,
             fontWeight = FontWeight.Bold
         )
-        Icon(
-            imageVector = Icons.Outlined.AddShoppingCart,
-            tint = MaterialTheme.colorScheme.primary,
-            contentDescription = null
-        )
+
     }
 }
 
