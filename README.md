@@ -2,7 +2,7 @@
 Unicorn Android
 
 # Screenshots
-<img src="https://github.com/arunabhdas/unicorn-android/blob/main/screenshots/screenshot_1.png" width="200"/>
+<img src="https://raw.githubusercontent.com/arunabhdas/unicorn-android/main/screenshots/screenshot_1_0_0.png" width="200"/>
 ## Links
 
 * Navigation Component
