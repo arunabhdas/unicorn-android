@@ -54,6 +54,10 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
 }
 
 @Composable
