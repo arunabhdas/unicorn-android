@@ -35,4 +35,48 @@ Teal Blue - 017794
 
 Bittersweet - FD6B65
 
+### sdk man
 
+==> sdk list java
+
+               |     | 8.0.352.fx   | librca  |            | 8.0.352.fx-librca   
+               |     | 8.0.352      | librca  |            | 8.0.352-librca      
+ Liberica NIK  |     | 22.3.r17     | nik     |            | 22.3.r17-nik        
+               |     | 22.3.r11     | nik     |            | 22.3.r11-nik        
+               |     | 22.2.r17     | nik     |            | 22.2.r17-nik        
+               |     | 22.2.r11     | nik     |            | 22.2.r11-nik        
+ Microsoft     |     | 17.0.5       | ms      |            | 17.0.5-ms           
+               |     | 11.0.17      | ms      |            | 11.0.17-ms          
+ Oracle        |     | 19.0.1       | oracle  |            | 19.0.1-oracle       
+               |     | 17.0.5       | oracle  |            | 17.0.5-oracle       
+ SapMachine    |     | 19.0.1       | sapmchn |            | 19.0.1-sapmchn      
+               |     | 17.0.5       | sapmchn |            | 17.0.5-sapmchn      
+               |     | 11.0.17      | sapmchn |            | 11.0.17-sapmchn     
+ Semeru        |     | 18.0.2       | sem     |            | 18.0.2-sem          
+               |     | 17.0.4.1     | sem     |            | 17.0.4.1-sem        
+               |     | 11.0.16.1    | sem     |            | 11.0.16.1-sem       
+ Temurin       |     | 19.0.1       | tem     |            | 19.0.1-tem          
+               |     | 17.0.5       | tem     | installed  | 17.0.5-tem          
+               |     | 11.0.17      | tem     |            | 11.0.17-tem         
+ Zulu          |     | 19.0.1       | zulu    |            | 19.0.1-zulu         
+               |     | 19.0.1.fx    | zulu    |            | 19.0.1.fx-zulu      
+               |     | 17.0.5       | zulu    |            | 17.0.5-zulu         
+               |     | 17.0.5.fx    | zulu    |            | 17.0.5.fx-zulu      
+               |     | 11.0.17      | zulu    |            | 11.0.17-zulu        
+               |     | 11.0.17.fx   | zulu    |            | 11.0.17.fx-zulu     
+               | >>> | 11.0.13      | zulu    | local only | 11.0.13-zulu        
+               |     | 8.0.352      | zulu    |            | 8.0.352-zulu        
+               |     | 8.0.352.fx   | zulu    |            | 8.0.352.fx-zulu     
+               |     | 8.0.312      | zulu    | local only | 8.0.312-zulu        
+================================================================================
+Omit Identifier to install default version 17.0.5-tem:
+    $ sdk install java
+Use TAB completion to discover available versions
+    $ sdk install java [TAB]
+Or install a specific version by Identifier:
+    $ sdk install java 17.0.5-tem
+Hit Q to exit this list view
+
+sdk default java 11.0.17-zulu
+
+java --version
