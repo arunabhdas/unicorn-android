@@ -3,11 +3,11 @@ Unicorn Android
 
 # Screenshots
 
-Screenshot 2_0
+* Screenshot 2_0
 <img src="https://raw.githubusercontent.com/arunabhdas/unicorn-android/develop/screenshots/screenshot_2_0.png" width="200"/>
 
-Screenshot 2_1
-<img src="https://raw.githubusercontent.com/arunabhdas/unicorn-android/develop/screenshots/screenshot_2_1.png" width="200"/>
+* 
+!(Screenshot 2_1)[https://raw.githubusercontent.com/arunabhdas/unicorn-android/develop/screenshots/screenshot_2_1.png]
 
 ## Links
 
