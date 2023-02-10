@@ -40,6 +40,7 @@ Bittersweet - FD6B65
 
 ### sdk man
 
+```
 ==> sdk list java
 
                |     | 8.0.352.fx   | librca  |            | 8.0.352.fx-librca   
@@ -83,3 +84,4 @@ Hit Q to exit this list view
 sdk default java 11.0.17-zulu
 
 java --version
+```
