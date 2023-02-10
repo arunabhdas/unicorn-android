@@ -6,6 +6,7 @@ Unicorn Android
 <img src="https://raw.githubusercontent.com/arunabhdas/unicorn-android/develop/screenshots/screenshot_2_0.png" width="200"/>
 
 <img src="https://raw.githubusercontent.com/arunabhdas/unicorn-android/develop/screenshots/screenshot_2_1.png" width="200"/>
+
 ## Links
 
 * Navigation Component
@@ -28,6 +29,8 @@ Photo by <a href="https://unsplash.com/@mischievous_penguins?utm_source=unsplash
 
 # Palette
 https://coolors.co/05556f-05a0b7-d5515b-017794-fd6b65
+
+```
 Blue Sapphire - 05556F
 
 Pacific Blue - 05A0B7
@@ -37,6 +40,7 @@ Indian Red - D5515B
 Teal Blue - 017794
 
 Bittersweet - FD6B65
+```
 
 ### sdk man
 
