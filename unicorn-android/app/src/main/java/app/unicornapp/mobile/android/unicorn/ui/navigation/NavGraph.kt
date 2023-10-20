@@ -19,6 +19,7 @@ fun SetupNavGraph(
     NavHost(
         navController = navController,
         startDestination = Screen.LandingScreen.route
+        // TODO-FIXME-CLEANUP startDestination = Screen.MainScreen.route
     ) {
 
         composable(
