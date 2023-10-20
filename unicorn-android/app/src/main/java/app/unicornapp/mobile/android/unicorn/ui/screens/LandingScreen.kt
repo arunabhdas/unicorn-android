@@ -81,7 +81,10 @@ fun LandingScreen(
             )
             ClickableText(
                 text = AnnotatedString("Welcome to Unicorn"),
-                style = MaterialTheme.typography.h3.copy(color = Color.White),
+                style = MaterialTheme.typography.h3.copy(
+                    color = Color.White,
+                    textAlign = TextAlign.Center
+                ),
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally),
                 onClick = {
