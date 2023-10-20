@@ -1,4 +1,4 @@
-package app.unicornapp.mobile.android
+package app.unicornapp.mobile.android.unicorn.ui.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -25,8 +25,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun MainScreen(
-    navController: NavController,
-    titles: List<String> = listOf("Unicorn")
+    navController: NavController
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
@@ -86,8 +85,7 @@ fun MainScreen(
 fun DefaultPreview() {
     UnicornTheme {
         MainScreen(
-            navController = rememberNavController(),
-            listOf("One", "Two", "Three")
+            navController = rememberNavController()
         )
     }
 }

@@ -12,8 +12,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.outlined.AddShoppingCart
 import androidx.compose.material.icons.outlined.Approval
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -67,7 +67,7 @@ fun HomeCard(
             },
             text = "Welcome to Unicorn",
             color = Color.White,
-            fontSize = MaterialTheme.typography.titleLarge.fontSize,
+            fontSize = MaterialTheme.typography.h2.fontSize,
             fontWeight = FontWeight.Bold
         )
         Text(
@@ -76,7 +76,7 @@ fun HomeCard(
             },
             text = "Prepare for Launch",
             color = Color.White,
-            fontSize = MaterialTheme.typography.titleMedium.fontSize,
+            fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold
         )
 

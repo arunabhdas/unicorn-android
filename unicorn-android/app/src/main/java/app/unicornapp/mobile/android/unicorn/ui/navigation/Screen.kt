@@ -4,6 +4,7 @@ package app.unicornapp.mobile.android.unicorn.ui.navigation
  * Created by Das on 2022-11-05.
  */
 sealed class Screen(val route: String) {
+    object MainScreen: Screen(route = "main_screen")
     object HomeScreen: Screen(route = "home_screen")
     object ContactScreen: Screen(route = "contact_screen")
     object NotificationScreen: Screen(route = "notification_screen")
