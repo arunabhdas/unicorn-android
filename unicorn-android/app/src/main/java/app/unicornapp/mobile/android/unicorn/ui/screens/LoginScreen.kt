@@ -32,22 +32,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import app.unicornapp.mobile.android.unicorn.R
 import app.unicornapp.mobile.android.unicorn.ui.navigation.Screen
-import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupNavGraph
 import app.unicornapp.mobile.android.unicorn.ui.theme.PrimaryColor
-import app.unicornapp.mobile.android.unicorn.ui.theme.TertiaryColor
 import app.unicornapp.mobile.android.unicorn.ui.theme.TransparentColor
 import app.unicornapp.mobile.android.unicorn.ui.util.createGradientEffect
 
+
 @Composable
-fun LandingScreen(
+fun LoginScreen(
     navController: NavController
     // TODO-FIXME navigator: DestinationsNavigator
 ) {
-    SetupNavGraph(navController = navController as NavHostController)
     val gradientColors = listOf(
         PrimaryColor,
         PrimaryColor
@@ -80,7 +76,7 @@ fun LandingScreen(
                     .size(150.dp)
             )
             ClickableText(
-                text = AnnotatedString("Welcome to Unicorn"),
+                text = AnnotatedString("Login to Unicorn"),
                 style = MaterialTheme.typography.h3.copy(color = Color.White),
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally),
@@ -103,10 +99,9 @@ fun LandingScreen(
             Spacer(modifier = Modifier.height(8.dp))
             Button(
                 onClick = {
-                    Log.d("LandingScreen", "navController: $navController, route: ${Screen.LoginScreen.route}")
+                    Log.d("LandingScreen", "navController: $navController, route: ${Screen.MainScreen.route}")
                     navController.navigate(
-                        // TODO-FIXME Screen.MainScreen.route
-                        Screen.LoginScreen.route
+                        Screen.MainScreen.route
                     )
                     /* TODO-FIXME
                     navigator.navigate(BottomNavigationMainScreenDestination(
@@ -140,16 +135,10 @@ fun LandingScreen(
 
 }
 
-@Composable
-@Preview
-fun LandingScreenPreview() {
-    LandingScreen(navController = rememberNavController())
-}
 
-/* TODO-FIXME
+
 @Composable
 @Preview
-fun LandingScreenPreview() {
-    LandingScreen(navigator = MockDestinationsNavigator())
+fun LoginScreenPreview() {
+    // TODO-FIXME-CLEANUP LandingScreen(navigator = MockDestinationsNavigator())
 }
-*/
