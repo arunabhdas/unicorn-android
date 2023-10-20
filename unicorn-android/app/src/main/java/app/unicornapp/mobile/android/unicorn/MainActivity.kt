@@ -27,6 +27,7 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import app.unicornapp.mobile.android.MainScreen
 import app.unicornapp.mobile.android.unicorn.ui.navigation.MenuItem
 import app.unicornapp.mobile.android.unicorn.ui.navigation.CustomAppBar
 import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerBody
@@ -50,7 +51,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             UnicornTheme {
                 navController = rememberNavController()
-                MyApp(navController)
+                MainScreen(navController)
             }
         }
     }
@@ -60,63 +61,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun MyApp(
-    navController: NavController,
-    titles: List<String> = listOf("Unicorn")
-) {
-    val scaffoldState = rememberScaffoldState()
-    val scope = rememberCoroutineScope()
-    Scaffold(
-        scaffoldState = scaffoldState,
-        drawerContent = {
-            DrawerBody(
-                items = listOf(
-                    MenuItem(
-                        id = "home",
-                        title = "Home",
-                        route = "home_screen",
-                        contentDescription = "Navigate to Home",
-                        icon = Icons.Default.Home
-                    ),
-                    MenuItem(
-                        id = "contact",
-                        title = "Contact",
-                        route = "contact_screen",
-                        contentDescription = "Navigate to Contact",
-                        icon = Icons.Default.Email
-                    ),
-                    MenuItem(
-                        id = "notifications",
-                        title = "Notifications",
-                        route = "notification_screen",
-                        contentDescription = "Navigate to Notifications",
-                        icon = Icons.Default.Notifications
-                    )
-                ),
-                onItemClick = {menuItem ->
-                    scope.launch {
-                        scaffoldState.drawerState.close()
-                    }
-                    println("Clicked on ${menuItem.title}")
-                    navController.navigate(route = menuItem.route)
-                }
-            )
-        }
-    ) { padding ->
-        Box(modifier = Modifier.padding(padding)) {
 
-            SetupNavGraph(navController = navController as NavHostController)
-            CustomAppBar(
-                onNavigationIconClick = {
-                    scope.launch {
-                        scaffoldState.drawerState.open()
-                    }
-                }
-            )
-        }
-    }
-}
 
 @Composable
 fun WelcomeScreen(titles: List<String> = listOf("Unicorn", "App")) {
@@ -150,13 +95,4 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 }
 
-@Preview(showBackground = true, widthDp = 320)
-@Composable
-fun DefaultPreview() {
-    UnicornTheme {
-        MyApp(
-            navController = rememberNavController(),
-            listOf("One", "Two", "Three")
-        )
-    }
-}
+
