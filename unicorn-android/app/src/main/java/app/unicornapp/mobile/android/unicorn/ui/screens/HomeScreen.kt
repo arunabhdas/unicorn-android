@@ -29,6 +29,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import app.unicornapp.mobile.android.unicorn.R
 import app.unicornapp.mobile.android.unicorn.ui.navigation.Screen
+import app.unicornapp.mobile.android.unicorn.ui.navigation.ScreenDrawer
 
 
 @Composable
@@ -63,7 +64,7 @@ fun HomeCard(
     ) {
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(route = Screen.HomeDetailScreen.route)
+                navController.navigate(route = ScreenDrawer.HomeDetailScreen.route)
             },
             text = "Welcome to Unicorn",
             color = Color.White,
@@ -72,7 +73,7 @@ fun HomeCard(
         )
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(route = Screen.HomeDetailScreen.route)
+                navController.navigate(route = ScreenDrawer.HomeDetailScreen.route)
             },
             text = "Prepare for Launch",
             color = Color.White,

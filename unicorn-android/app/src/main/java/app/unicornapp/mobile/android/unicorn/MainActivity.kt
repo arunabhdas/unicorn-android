@@ -18,7 +18,7 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupNavGraph
+import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupRootNavGraph
 import app.unicornapp.mobile.android.unicorn.ui.screens.LandingScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.MainScreen
 import app.unicornapp.mobile.android.unicorn.ui.theme.UnicornTheme
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
             UnicornTheme {
                 navHostController = rememberNavController()
                 // TODO-FIXME-CLEANUP SetupNavGraph(navController = navController as NavHostController)
-                SetupNavGraph(navController = navHostController)
+                SetupRootNavGraph(navController = navHostController)
                 // TODO-FIXME-CLEANUP LandingScreen(navController = navHostController)
             }
         }

@@ -18,6 +18,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import app.unicornapp.mobile.android.unicorn.R
 import app.unicornapp.mobile.android.unicorn.ui.navigation.Screen
+import app.unicornapp.mobile.android.unicorn.ui.navigation.ScreenDrawer
 
 @Composable
 fun NotificationScreen(
@@ -36,8 +37,8 @@ fun NotificationScreen(
         )
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(Screen.HomeScreen.route) {
-                    popUpTo(Screen.HomeScreen.route) {
+                navController.navigate(ScreenDrawer.HomeScreen.route) {
+                    popUpTo(ScreenDrawer.HomeScreen.route) {
                         inclusive = true
                     }
                 }

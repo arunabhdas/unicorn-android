@@ -12,8 +12,46 @@ import app.unicornapp.mobile.android.unicorn.ui.screens.LoginScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.MainScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.NotificationScreen
 
+
 @Composable
-fun SetupNavGraph(
+fun SetupDrawerNavGraph(
+    navController: NavHostController
+) {
+    NavHost(
+        navController = navController,
+        startDestination = ScreenDrawer.HomeScreen.route
+        // TODO-FIXME-CLEANUP startDestination = Screen.MainScreen.route
+    ) {
+
+        composable(
+            route = ScreenDrawer.HomeScreen.route
+        ) {
+            HomeScreen(
+                navController = navController
+            )
+        }
+
+        composable(
+            route = ScreenDrawer.ContactScreen.route
+        ) {
+            ContactScreen(
+                navController = navController
+            )
+        }
+
+        composable(
+            route = ScreenDrawer.NotificationScreen.route
+        ) {
+            NotificationScreen(
+                navController = navController
+            )
+        }
+
+    }
+}
+
+@Composable
+fun SetupRootNavGraph(
     navController: NavHostController
 ) {
     NavHost(
@@ -42,38 +80,6 @@ fun SetupNavGraph(
             route = Screen.MainScreen.route
         ) {
             MainScreen(
-                navController = navController
-            )
-        }
-
-        composable(
-            route = Screen.HomeScreen.route
-        ) {
-            HomeScreen(
-                navController = navController
-            )
-        }
-
-        composable(
-            route = Screen.HomeDetailScreen.route
-        ) {
-            HomeDetailScreen(
-                navController = navController
-            )
-        }
-
-        composable(
-            route = Screen.NotificationScreen.route
-        ) {
-            NotificationScreen(
-                navController = navController
-            )
-        }
-
-        composable(
-            route = Screen.ContactScreen.route
-        ) {
-            ContactScreen(
                 navController = navController
             )
         }

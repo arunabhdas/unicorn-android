@@ -18,7 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import app.unicornapp.mobile.android.unicorn.ui.navigation.CustomAppBar
 import app.unicornapp.mobile.android.unicorn.ui.navigation.DrawerBody
 import app.unicornapp.mobile.android.unicorn.ui.navigation.MenuItem
-import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupNavGraph
+import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupDrawerNavGraph
 import app.unicornapp.mobile.android.unicorn.ui.theme.UnicornTheme
 import kotlinx.coroutines.launch
 
@@ -27,6 +27,7 @@ import kotlinx.coroutines.launch
 fun MainScreen(
     navController: NavController
 ) {
+    lateinit var drawerNavHostController: NavHostController
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     Scaffold(
@@ -61,14 +62,15 @@ fun MainScreen(
                         scaffoldState.drawerState.close()
                     }
                     println("Clicked on ${menuItem.title}")
-                    navController.navigate(route = menuItem.route)
+                    // navController.navigate(route = menuItem.route)
+                    drawerNavHostController.navigate(route = menuItem.route)
                 }
             )
         }
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {
-
-            // TODO-FIXME-CLEANUP-SHOULD-THIS-BE-CALLED-EARLIER SetupNavGraph(navController = navController as NavHostController)
+            drawerNavHostController = rememberNavController()
+            SetupDrawerNavGraph(navController = drawerNavHostController as NavHostController)
 
             CustomAppBar(
                 onNavigationIconClick = {
