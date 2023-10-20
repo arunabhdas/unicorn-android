@@ -68,6 +68,7 @@ fun MainScreen(
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {
 
+            // TODO-FIXME-CLEANUP-SHOULD-THIS-BE-CALLED-EARLIER SetupNavGraph(navController = navController as NavHostController)
             SetupNavGraph(navController = navController as NavHostController)
             CustomAppBar(
                 onNavigationIconClick = {
