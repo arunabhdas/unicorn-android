@@ -47,7 +47,6 @@ fun LandingScreen(
     navController: NavController
     // TODO-FIXME navigator: DestinationsNavigator
 ) {
-    SetupNavGraph(navController = navController as NavHostController)
     val gradientColors = listOf(
         PrimaryColor,
         PrimaryColor
@@ -110,8 +109,8 @@ fun LandingScreen(
                 onClick = {
                     Log.d("LandingScreen", "navController: $navController, route: ${Screen.LoginScreen.route}")
                     navController.navigate(
-                        // TODO-FIXME Screen.MainScreen.route
-                        Screen.LoginScreen.route
+                        Screen.MainScreen.route
+                        // TODO-FIXME-CLEANUP Screen.LoginScreen.route
                     )
                     /* TODO-FIXME
                     navigator.navigate(BottomNavigationMainScreenDestination(
@@ -128,6 +127,10 @@ fun LandingScreen(
             Spacer(modifier = Modifier.height(8.dp))
             Button(
                 onClick = {
+                          Log.d("LandingScreen", "navController: $navController, route: ${Screen.LoginScreen.route}")
+                          navController.navigate(
+                              Screen.LoginScreen.route
+                          )
                     /* TODO-FIXME
                     navigator.navigate(
                     )

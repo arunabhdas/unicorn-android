@@ -16,14 +16,17 @@ import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import app.unicornapp.mobile.android.unicorn.ui.navigation.SetupNavGraph
 import app.unicornapp.mobile.android.unicorn.ui.screens.LandingScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.MainScreen
 import app.unicornapp.mobile.android.unicorn.ui.theme.UnicornTheme
 import app.unicornapp.mobile.android.unicorn.viewmodel.UnicornViewModel
 
 class MainActivity : ComponentActivity() {
-    lateinit var navController: NavController
+    // TODO-FIXME-CLEANUP lateinit var navController: NavController
+    lateinit var navHostController: NavHostController
     private val viewModel: UnicornViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +38,10 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             UnicornTheme {
-                navController = rememberNavController()
-                // MainScreen(navController)
-                LandingScreen(navController = navController)
+                navHostController = rememberNavController()
+                // TODO-FIXME-CLEANUP SetupNavGraph(navController = navController as NavHostController)
+                SetupNavGraph(navController = navHostController)
+                // TODO-FIXME-CLEANUP LandingScreen(navController = navHostController)
             }
         }
     }
@@ -45,40 +49,6 @@ class MainActivity : ComponentActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
     }
-}
-
-
-
-@Composable
-fun WelcomeScreen(titles: List<String> = listOf("Unicorn", "App")) {
-
-    // A surface container using the 'background' color from the theme
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colors.primary
-    ) {
-        Column {
-            for (title in titles) {
-                Greeting(title)
-            }
-        }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Surface(color = MaterialTheme.colors.primary) {
-        Column(modifier = Modifier.padding(24.dp)) {
-            Text(
-                text = "Welcome to $name!",
-
-                )
-            Text(
-                text = "Welcome to $name!",
-            )
-        }
-    }
-
 }
 
 
