@@ -80,7 +80,9 @@ fun LandingScreen(
                     .size(150.dp)
             )
             ClickableText(
-                text = AnnotatedString("Welcome to Unicorn"),
+                text = AnnotatedString(
+                    stringResource(id = R.string.unicorn_landing_screen_welcome_message)
+                ),
                 style = MaterialTheme.typography.h3.copy(
                     color = Color.White,
                     textAlign = TextAlign.Center
