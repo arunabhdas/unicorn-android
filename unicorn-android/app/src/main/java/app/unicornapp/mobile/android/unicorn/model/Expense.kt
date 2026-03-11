@@ -5,7 +5,12 @@ data class Expense(
     val title: String,
     val amount: Double,
     val date: Long,
-    val category: String
+    val category: ExpenseCategory
 )
 
-
+enum class ExpenseCategory {
+    ALL,
+    FOOD,
+    TRANSPORT,
+    CLOTHING
+}
