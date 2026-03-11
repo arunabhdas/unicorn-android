@@ -66,7 +66,7 @@ fun HomeCard(
             modifier = Modifier.clickable {
                 navController.navigate(route = ScreenDrawer.HomeDetailScreen.route)
             },
-            text = "Welcome to Unicorn",
+            text = "Test App",
             color = Color.White,
             fontSize = MaterialTheme.typography.h2.fontSize,
             fontWeight = FontWeight.Bold
@@ -75,7 +75,7 @@ fun HomeCard(
             modifier = Modifier.clickable {
                 navController.navigate(route = ScreenDrawer.HomeDetailScreen.route)
             },
-            text = "Prepare for Launch",
+            text = "Test App",
             color = Color.White,
             fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold
