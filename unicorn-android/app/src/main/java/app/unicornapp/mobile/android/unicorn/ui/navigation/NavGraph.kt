@@ -1,6 +1,7 @@
 package app.unicornapp.mobile.android.unicorn.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -10,7 +11,9 @@ import app.unicornapp.mobile.android.unicorn.ui.screens.HomeDetailScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.LandingScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.LoginScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.MainScreen
+import app.unicornapp.mobile.android.unicorn.ui.screens.ExpensesScreenContent
 import app.unicornapp.mobile.android.unicorn.ui.screens.NotificationScreen
+import app.unicornapp.mobile.android.unicorn.viewmodel.ExpensesViewModel
 
 
 @Composable
@@ -46,6 +49,15 @@ fun SetupDrawerNavGraph(
         ) {
             NotificationScreen(
                 navController = navController
+            )
+        }
+
+        composable(
+            route = ScreenDrawer.ExpensesScreen.route
+        ) {
+            ExpensesScreenContent(
+                navController = navController,
+                viewModel = ExpensesViewModel()
             )
         }
 

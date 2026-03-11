@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AttachMoney
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
@@ -55,6 +56,13 @@ fun MainScreen(
                         route = "notification_screen",
                         contentDescription = "Navigate to Notifications",
                         icon = Icons.Default.Notifications
+                    ),
+                    MenuItem(
+                        id = "expenses",
+                        title = "Expenses",
+                        route = "expenses_screen",
+                        contentDescription = "Navigate to Expenses",
+                        icon = Icons.Default.AttachMoney
                     )
                 ),
                 onItemClick = {menuItem ->

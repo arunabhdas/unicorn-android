@@ -136,6 +136,13 @@ fun DrawerBodyPreview() {
                 route = "notification_screen",
                 contentDescription = "Navigate to Notifications",
                 icon = Icons.Default.Notifications
+            ),
+            MenuItem(
+                id = "expenses",
+                title = "Expenses",
+                route = "expenses_screen",
+                contentDescription = "Navigate to Expenses",
+                icon = Icons.Default.Notifications
             )
         ),
         onItemClick = {menuItem ->

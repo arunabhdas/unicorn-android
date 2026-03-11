@@ -14,12 +14,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import app.unicornapp.mobile.android.unicorn.model.Expense
 import app.unicornapp.mobile.android.unicorn.model.ExpenseCategory
 import app.unicornapp.mobile.android.unicorn.viewmodel.ExpensesViewModel
 
 @Composable
 fun ExpensesScreenContent(
+    navController: NavController,
     viewModel: ExpensesViewModel
 ) {
     val filteredExpenses by viewModel.filteredExpenses.collectAsState()
@@ -64,7 +66,6 @@ fun ExpenseRow(
 }
 
 // CategoryFilter
-@OptIn(ExperimentalStdlibApi::class)
 @Composable
 fun CategoryFilter(
     onCategorySelected: (ExpenseCategory?) -> Unit
@@ -75,7 +76,7 @@ fun CategoryFilter(
         Button(onClick = {onCategorySelected(null)}) {
            Text("All")
         }
-        ExpenseCategory.entries.forEach { expenseCategory ->
+        ExpenseCategory.values().forEach { expenseCategory ->
             Button(
                 onClick = {onCategorySelected(expenseCategory)}
             ) {
