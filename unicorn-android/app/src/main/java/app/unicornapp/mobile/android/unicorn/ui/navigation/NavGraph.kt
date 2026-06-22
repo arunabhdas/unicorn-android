@@ -6,7 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import app.unicornapp.mobile.android.unicorn.ui.screens.ContactScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.HomeScreen
-import app.unicornapp.mobile.android.unicorn.ui.screens.HomeDetailScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.LandingScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.LoginScreen
 import app.unicornapp.mobile.android.unicorn.ui.screens.MainScreen
